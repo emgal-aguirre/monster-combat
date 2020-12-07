@@ -19,13 +19,15 @@ function adjustHealthBars(maxLife) {
 function dealMonsterDamage(damage) {
   const dealtDamage = Math.random() * damage;
   monsterHealthBar.value = +monsterHealthBar.value - dealtDamage;
-  monsterImg.src = './assets/styles/monster2.png';
+  monsterImg.src = './assets/styles/mon2.png';
   if (monsterHealthBar.value > 40) {
-    monsterImg.src = './assets/styles/player1.png';
+    monsterImg.src = './assets/styles/mon3.png';
+    // try to change status bar color
+    // monsterHealthBar.style.backgroundColor = 'red';
   } else if (monsterHealthBar.value > 20) {
-    monsterImg.src = './assets/styles/player2.png';
+    monsterImg.src = './assets/styles/mon4.png';
   } else if (monsterHealthBar.value >= 5) {
-    monsterImg.src = './assets/styles/monster1.png';
+    monsterImg.src = './assets/styles/mon5.png';
   }
   return dealtDamage;
 }
@@ -33,13 +35,13 @@ function dealMonsterDamage(damage) {
 function dealPlayerDamage(damage) {
   const dealtDamage = Math.random() * damage;
   playerHealthBar.value = +playerHealthBar.value - dealtDamage;
-  playerImg.src = './assets/styles/player2.png';
-  if (monsterHealthBar.value > 40) {
-    monsterImg.src = './assets/styles/player1.png';
-  } else if (monsterHealthBar.value > 20) {
-    monsterImg.src = './assets/styles/player2.png';
-  } else if (monsterHealthBar.value >= 5) {
-    monsterImg.src = './assets/styles/monster1.png';
+  playerImg.src = './assets/styles/monster2.png';
+  if (playerHealthBar.value > 40) {
+    playerImg.src = './assets/styles/player1.png';
+  } else if (playerHealthBar.value > 20) {
+    playerImg.src = './assets/styles/player2.png';
+  } else if (playerHealthBar.value >= 5) {
+    playerImg.src = './assets/styles/monster1.png';
   }
   return dealtDamage;
 }
@@ -51,6 +53,8 @@ function increasePlayerHealth(healValue) {
 function resetGame(value) {
   playerHealthBar.value = value;
   monsterHealthBar.value = value;
+  monsterImg.src = './assets/styles/mon1.png';
+  playerImg.src = './assets/styles/monster1.png';
 }
 
 function removeBonusLife() {
